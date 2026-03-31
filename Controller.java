@@ -57,6 +57,11 @@ public class Controller{
         // get the current scene
         this.currentScene = this.map.getScene(currentRow, currentCol);
     
+        // create the screen
+        this.screen = new MainScreen(this);
+
+        // show the starting picture and description
+        updateScene();
    }
 
    public void moveNorth(){
@@ -97,6 +102,9 @@ public class Controller{
    private void updateScene(){
         // get the new Scene
         this.currentScene = this.map.getScene(currentRow, currentCol);
-   }
+        // update the picture and description of the new scene
+        this.screen.setImage(this.currentScene.getImage());
+        this.screen.setDescription(this.currentScene.getDescription());
+    }
     
 }
